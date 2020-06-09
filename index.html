@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>MOVING EYES</title>
+</head>
+
+<body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: rgb(94, 72, 2);
+    }
+
+    .face {
+      position: absolute;
+      margin: auto;
+      width: 500px;
+      height: 500px;
+      background: rgb(96, 146, 3);
+      border-radius: 50%;
+      left: 34%;
+      top: 55%;
+      transform: translateY(-50%);
+    }
+
+    .tear {
+      position: absolute;
+      margin: auto;
+      top: 25%;
+      background: rgb(137, 174, 216);
+      left: 80%;
+      
+      transform: rotate(-50deg);
+      border: 3px solid rgb(4, 8, 4);
+      width: 20px;
+      height: 50px;
+      border-top-left-radius: 100%;
+      border-bottom-left-radius: 100%;
+      border-bottom-right-radius: 100%;
+    }
+
+    .mouth {
+      position: absolute;
+      margin: auto;
+      top: 72%;
+      width: 100px;
+      height: 50px;
+      background: red;
+      left: 47%;
+      transform: translateY(-50%);
+      border-bottom-left-radius: 5%;
+      border-bottom-right-radius: 5%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border: 1px solid black;
+    }
+
+    .tooth1 {
+      position: absolute;
+      margin: auto;
+      top: 15%;
+      width: 30px;
+      height: 15px;
+      background: rgb(233, 210, 6);
+      left: 0%;
+      transform: translateY(-50%);
+      border-bottom-left-radius: 25%;
+      border-bottom-right-radius: 25%;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border: 1px solid black;
+    }
+
+    .tooth2 {
+      position: absolute;
+      margin: auto;
+      top: 15%;
+      width: 30px;
+      height: 15px;
+      background: rgb(233, 210, 6);
+      left: 34%;
+      transform: translateY(-50%);
+      border-bottom-left-radius: 25%;
+      border-bottom-right-radius: 25%;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border: 1px solid black;
+    }
+
+    .tooth3 {
+      position: absolute;
+      margin: auto;
+      top: 15%;
+      width: 30px;
+      height: 15px;
+      background: rgb(233, 210, 6);
+      left: 68%;
+      transform: translateY(-50%);
+      border-bottom-left-radius: 25%;
+      border-bottom-right-radius: 25%;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border: 1px solid black;
+    }
+
+    .tooth4 {
+      position: absolute;
+      margin: auto;
+      top: 84%;
+      width: 30px;
+      height: 15px;
+      background: rgb(233, 210, 6);
+      left: 0%;
+      transform: translateY(-50%);
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-top-left-radius: 25%;
+      border-top-right-radius: 25%;
+      border: 1px solid black;
+    }
+
+    .tooth5 {
+      position: absolute;
+      margin: auto;
+      top: 84%;
+      width: 30px;
+      height: 15px;
+      background: rgb(233, 210, 6);
+      left: 34%;
+      transform: translateY(-50%);
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-top-left-radius: 25%;
+      border-top-right-radius: 25%;
+      border: 1px solid black;
+    }
+
+    .tooth6 {
+      position: absolute;
+      margin: auto;
+      top: 84%;
+      width: 30px;
+      height: 15px;
+      background: rgb(233, 210, 6);
+      left: 68%;
+      transform: translateY(-50%);
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-top-left-radius: 25%;
+      border-top-right-radius: 25%;
+      border: 1px solid black;
+    }
+
+    .eyes {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      text-align: center;
+    }
+
+    .eye {
+      width: 130px;
+      height: 120px;
+      background: #fff;
+      display: inline-block;
+      margin: 30px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ball {
+      width: 40px;
+      height: 40px;
+      background: #000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 15px solid #333;
+    }
+
+    @media (max-width: 1325px) {
+
+      .face {
+        left: 25%;
+      }
+
+      .mouth {
+        top: 62%;
+        left: 45%;
+      }
+    }
+ 
+  </style>
+
+  <div class="face">
+    <div class="tear"></div>
+  </div>
+  <div class="mouth">
+    <div class="tooth1"></div>
+    <div class="tooth2"></div>
+    <div class="tooth3"></div>
+    <div class="tooth4"></div>
+    <div class="tooth5"></div>
+    <div class="tooth6"></div>
+  </div>
+  <div class="eyes">
+    <div class="eye">
+      <div class="ball"></div>
+    </div>
+
+    <div class="eye">
+      <div class="ball"></div>
+    </div>
+  </div>
+
+
+  <script>
+    var balls = document.getElementsByClassName("ball");
+    document.onmousemove = function () {
+      var x = event.clientX * 100 / window.innerWidth + "%";
+      var y = event.clientY * 100 / window.innerHeight + "%";
+      //event.clientX => get the horizontal coordinate of the mouse
+      //event.clientY => get the Vertical coordinate of the mouse
+      //window.innerWidth => get the browser width
+      //window.innerHeight => get the browser height
+
+      for (var i = 0; i < 2; i++) {
+        balls[i].style.left = x; //So that it moves to left and right
+        balls[i].style.top = y; //It moves top and bottom
+        balls[i].style.transform = "translate(-" + x + ",-" + y + ")"; // It doesn't crosses the eye boundary.
+      }
+    }
+  </script>
+
+</body>
+
+</html>
